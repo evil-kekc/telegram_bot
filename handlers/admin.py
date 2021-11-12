@@ -24,7 +24,7 @@ class FSMAdmin(StatesGroup):
 
 
 
-"""Разрешение на загрузку новых данных через админку. Надо во всех функциях добавить if message.text == ID: """
+"""Разрешение на загрузку новых данных через админку. """
 async def cm_start(message: types.Message):
     await FSMAdmin.next()
     await message.answer('Выберите, что хотите сделать\n\nДля отмены в любой момент нажмите "Отмена" или /cancel',
