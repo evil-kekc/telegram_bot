@@ -17,6 +17,7 @@ class FSMClient(StatesGroup):
     question = State()
     otz = State()
     send_question_otz = State()
+    tel_numb = State()
 
 
 storage = MemoryStorage()
@@ -92,11 +93,11 @@ async def contact_inf(message: types.Message):
 
 async def get_num_ques(message:types.Message):
     await message.answer('Введите ваш номер телефона', reply_markup=contact_cancel_button)
-    await FSMClient.get_ques.set()
+    await FSMClient.tel_numb.set()
 
 async def get_num_otz(message:types.Message):
     await message.answer('Введите ваш номер телефона', reply_markup=contact_cancel_button)
-    await FSMClient.get_otz.set()
+    await FSMClient.tel_numb.set()
 
 
 async def get_ques(message: types.Message, state: FSMContext):
@@ -226,11 +227,11 @@ def register_handlers_client(dp: Dispatcher):  # Функция для реги�
     dp.register_message_handler(get_num_ques, Text(equals='❓Задать вопрос'), state=None)
     dp.register_message_handler(get_num_otz, Text(equals='⚠️Оставить отзыв'), state=None)
 
-    dp.register_message_handler(get_ques, content_types=types.ContentType.CONTACT, state=FSMClient.get_ques)
-    dp.register_message_handler(get_ques, state=FSMClient.get_ques)
+    dp.register_message_handler(get_ques, content_types=types.ContentType.CONTACT, state=FSMClient.tel_numb)
+    dp.register_message_handler(get_ques, state=FSMClient.tel_numb)
 
-    dp.register_message_handler(get_otz, content_types=types.ContentType.CONTACT, state=FSMClient.get_ques)
-    dp.register_message_handler(get_otz, state=FSMClient.get_otz)
+    dp.register_message_handler(get_otz, content_types=types.ContentType.CONTACT, state=FSMClient.tel_numb)
+    dp.register_message_handler(get_otz, state=FSMClient.tel_numb)
 
     dp.register_message_handler(otz, state=FSMClient.otz)
 
