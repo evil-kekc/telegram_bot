@@ -173,7 +173,7 @@ async def get_tel(message: types.Message, state: FSMContext):
     if dost_yes == None:
         if user_surname == None:
             if photo == None:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                        f'<b>Заказчик:</b> {user_name}\n\n'
                                                        f'<b>Номер букета:</b> {number}\n\n'
                                                        f'<b>Контакт заказчика:</b> {telephone}\n\n'
@@ -181,7 +181,7 @@ async def get_tel(message: types.Message, state: FSMContext):
                                                        f'<b>Тип связи:</b> {type_communicate}',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_photo(-1001558893104, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_photo(chat_id, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                             f'<b>Заказчик:</b> {user_name}\n\n'
                                                             f'<b>Номер телефона:</b> {telephone}\n\n'
                                                             f'<b>Нужна ли доставка:</b> {dost_no}\n\n'
@@ -189,7 +189,7 @@ async def get_tel(message: types.Message, state: FSMContext):
                                      parse_mode=types.ParseMode.HTML)
         else:
             if photo == None:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                        f'<b>Заказчик:</b> {user_name} {user_surname}\n\n'
                                                        f'<b>Номер букета:</b> {number}\n\n'
                                                        f'<b>Контакт заказчика:</b> {telephone}\n\n'
@@ -197,7 +197,7 @@ async def get_tel(message: types.Message, state: FSMContext):
                                                        f'<b>Тип связи:</b> {type_communicate}',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_photo(-1001558893104, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_photo(chat_id, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                             f'<b>Заказчик:</b> {user_name} {user_surname}\n\n'
                                                             f'<b>Контакт заказчика:</b> {telephone}\n\n'
                                                             f'<b>Нужна ли доставка:</b> {dost_no}\n\n'
@@ -207,7 +207,7 @@ async def get_tel(message: types.Message, state: FSMContext):
     elif dost_no == None:
         if user_surname == None:
             if photo == None:
-                await bot.send_message(-1001558893104,
+                await bot.send_message(chat_id,
                                        f'<b>Поступил новый заказ!</b>\n\n\n'
                                        f'<b>Заказчик:</b> {user_name}\n\n'
                                        f'<b>Номер букета:</b> {number}\n\n'
@@ -220,7 +220,7 @@ async def get_tel(message: types.Message, state: FSMContext):
                                        f'<b>Тип связи:</b> {type_communicate}',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_photo(-1001558893104, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_photo(chat_id, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                             f'<b>Заказчик:</b> {user_name}\n\n'
                                                             f'<b>Контакт заказчика:</b> {telephone}\n\n'
                                                             f'<b>Нужна ли доставка?:</b> {dost_yes}\n\n'
@@ -233,7 +233,7 @@ async def get_tel(message: types.Message, state: FSMContext):
 
         else:
             if photo == None:
-                await bot.send_message(-1001558893104,
+                await bot.send_message(chat_id,
                                        f'<b>Поступил новый заказ!</b>\n\n\n'
                                        f'<b>Заказчик:</b> {user_name} {user_surname}\n\n'
                                        f'<b>Номер букета:</b> {number}\n\n'
@@ -246,7 +246,7 @@ async def get_tel(message: types.Message, state: FSMContext):
                                        f'<b>Тип связи:</b> {type_communicate}',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_photo(-1001558893104, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
+                await bot.send_photo(chat_id, photo, f'<b>Поступил новый заказ!</b>\n\n\n'
                                                             f'<b>Заказчик:</b> {user_name} {user_surname}\n\n'
                                                             f'<b>Контакт заказчика:</b> {telephone}\n\n'
                                                             f'<b>Нужна ли доставка?:</b> {dost_yes}\n\n'
