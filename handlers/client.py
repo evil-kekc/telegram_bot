@@ -171,13 +171,13 @@ async def send_question_otz(message: types.Message, state: FSMContext):
         await message.answer('Спасибо за информацию, с вами вскоре свяжутся', reply_markup=kb_client)
         if otz == None:
             if user_surname == None:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый вопрос!</b>\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый вопрос!</b>\n\n'
                                                        f'<b>Пользователь:</b> {user_name}\n'
                                                        f'<b>Контакт:</b> {number}\n'
                                                        f'<b>Вопрос:</b> {question}\n',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый вопрос!</b>\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый вопрос!</b>\n\n'
                                                        f'<b>Пользователь:</b> {user_name} {user_surname}\n'
                                                        f'<b>Контакт:</b> {number}\n'
                                                        f'<b>Вопрос:</b> {question}\n',
@@ -185,13 +185,13 @@ async def send_question_otz(message: types.Message, state: FSMContext):
 
         elif question == None:
             if user_surname == None:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый отзыв!</b>\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый отзыв!</b>\n\n'
                                                        f'<b>Пользователь:</b> {user_name}\n'
                                                        f'<b>Контакт:</b> {number_1}\n'
                                                        f'<b>Вопрос:</b> {otz}\n',
                                        parse_mode=types.ParseMode.HTML)
             else:
-                await bot.send_message(-1001558893104, f'<b>Поступил новый отзыв!</b>\n\n'
+                await bot.send_message(chat_id, f'<b>Поступил новый отзыв!</b>\n\n'
                                                        f'<b>Пользователь:</b> {user_name} {user_surname}\n'
                                                        f'<b>Контакт:</b> {number_1}\n'
                                                        f'<b>Вопрос:</b> {otz}\n',
