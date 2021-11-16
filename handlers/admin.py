@@ -11,7 +11,7 @@ from keyboards import kb_client, back_button, album_all_kb
 from create_bot import dp, bot
 
 
-admin_id = 72666862, 539095639
+admin_id = chat_id_1, chat_id_2
 
 
 
@@ -84,15 +84,15 @@ async def get_price(message: types.Message, state: FSMContext):
 
 async def back_button_reply(message: types.Message):
 
-    await bot.send_message(-1001799475640, text='Нажмите "назад" для возврата к оформлению заказа',
+    await bot.send_message(chat_id, text='Нажмите "назад" для возврата к оформлению заказа',
                            reply_markup=back_button)
-    await bot.send_message(-1001701340214, text='Нажмите "назад" для возврата к оформлению заказа',
+    await bot.send_message(chat_id, text='Нажмите "назад" для возврата к оформлению заказа',
                            reply_markup=back_button)
-    await bot.send_message(-1001702300282, text='Нажмите "назад" для возврата к оформлению заказа',
+    await bot.send_message(chat_id, text='Нажмите "назад" для возврата к оформлению заказа',
                            reply_markup=back_button)
-    await bot.send_message(-1001183207729, text='Также можете посмотреть наши альбомы по ценовым категориям',
+    await bot.send_message(chat_id, text='Также можете посмотреть наши альбомы по ценовым категориям',
                            reply_markup=album_all_kb)
-    await bot.send_message(-1001183207729, text='Нажмите "назад" для возврата к оформлению заказа',
+    await bot.send_message(chat_id, text='Нажмите "назад" для возврата к оформлению заказа',
                            reply_markup=back_button)
     await bot.send_message(message.from_user.id,
                            f'Сообщения в чаты отправлены',
