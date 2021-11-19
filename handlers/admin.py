@@ -78,8 +78,16 @@ async def get_price(message: types.Message, state: FSMContext):
         await message.answer('Произошла ошибка сохранения, проверьте правильность ввода данных',
                              reply_markup=kb_client)
         await state.finish()
+        
 
-
+async def client_inf(message: types.Message, state: FSMContext):
+    current_state = await state.get_state()
+    if current_state is None:
+        return
+    await state.finish()
+    await sqlite_db.sql_read_zakaz(message)
+    
+        
 async def back_button_reply(message: types.Message):
 
     await bot.send_message(chat_id, text='Нажмите "назад" для возврата к оформлению заказа',
@@ -116,3 +124,5 @@ def register_handlers_admin(dp: Dispatcher):  # Функция для регис
     dp.register_message_handler(get_price, state=FSMAdmin.price)
 
     dp.register_message_handler(back_button_reply, commands=['button'])
+    
+    dp.register_message_handler(client_inf, Text(equals=['Информация о заказах'], ignore_case=True), state='*')
