@@ -166,8 +166,16 @@ async def get_tel(message: types.Message, state: FSMContext):
     if telephone == None:
         contact_1 = message.contact
         telephone = (f'\n  Имя:{contact_1.full_name}\n  Телефон: {contact_1.phone_number}\n  ID: {contact_1.user_id}')
+        db_telephone = contact_1.phone_number
+    
+    ID = message.from_user.id
+    if dost_yes == None:
+        dost = dost_no
+    else:
+        dost = dost_yes
 
-    # await sqlite_db.sql_add_zakaz_command(state)
+    db_name = f'{user_name} {user_surname}'
+    await sqlite_db.sql_add_zakaz_command(ID, db_name, number, photo,  db_telephone, dost)
 
     await message.answer('Спасибо за заказ, с вами вскоре свяжутся', reply_markup=kb_client)
     if dost_yes == None:
