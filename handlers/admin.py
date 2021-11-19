@@ -85,6 +85,8 @@ async def client_inf(message: types.Message, state: FSMContext):
     if current_state is None:
         return
     await sqlite_db.sql_read_zakaz(message)
+    await message.answer('Выберите, что хотите сделать\n\nДля отмены в любой момент нажмите "Отмена" или /cancel',
+                         reply_markup=admin_kb.button_exit_admin)
     
         
 async def back_button_reply(message: types.Message):
